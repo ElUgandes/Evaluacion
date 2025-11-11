@@ -120,7 +120,7 @@
                 <textarea class="form-control" id="descripcion" rows="3" placeholder="Descrpción del producto..." required></textarea>
               </div>
 
-              <!-- MODIFICACION: SUBIR una o varias imágenes -->
+              <!-- subir imágenes -->
               <div class="col-12">
                 <label for="imagenes" class="form-label">Imágenes del Producto (puedes subir una o varias)</label>
                 <input type="file" id="imagenes" class="form-control" accept="image/*" multiple />
@@ -142,17 +142,17 @@
     
     let productos = [];
     
-    //esta línea es nueva
+    //lectura del formulario como variable
     const LS_KEY = 'productos';
 
     const modal = new bootstrap.Modal(document.getElementById('productoModal'));
 
-    //esta función es para guardar los productos en el localStorage
+    //esta función es para guardar los productos
     function saveToLS() {
       localStorage.setItem(LS_KEY, JSON.stringify(productos));
     }
 
-    //esta función es para recuperar los productos del localStorage
+    //esta función es para recuperar los productos
     function loadFromLS() {
       try {
         const raw = localStorage.getItem(LS_KEY);
@@ -184,7 +184,7 @@
       return Promise.all(readers);
     }
 
-    // Render de tarjetas
+    // Render de tarjetas de productos
     function renderProjects() {
       const container = document.getElementById('productsContainer');
       container.innerHTML = '';
